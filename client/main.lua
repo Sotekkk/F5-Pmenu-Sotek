@@ -1,3 +1,6 @@
+----Sotek#1234 ----  discord : https://discord.gg/MYb6TcHmq9
+
+
 ESX = nil
 
 local kAucJRnd = {}
