@@ -273,7 +273,7 @@ ftest = {
 				    local label  = bills[i].label
 				    local value = bills[i].id
 				    if item == billItem[bills[i].id] then
-                        ESX.TriggerServerCallback('a_billing:payBill', function() -- bills trigger change it
+                        ESX.TriggerServerCallback('esx_billing:payBill', function() -- bills trigger change it
                             CloseMenu()
 					    end,bills[i].id)
 				    end
@@ -380,7 +380,7 @@ ftest = {
         end
         if btn == "Gestion Entreprise" then
             ftest.Menu["Gestion Entreprise"].b = {}
-            ESX.TriggerServerCallback('a_society:getSocietyMoney', function(money)
+            ESX.TriggerServerCallback('esx_society:getSocietyMoney', function(money)
             table.insert(ftest.Menu["Gestion Entreprise"].b, { name = "Argent Société : ~g~$" ..ESX.Math.GroupDigits(money) , ask = "", askX = true}) end, ESX.PlayerData.job.name)
             table.insert(ftest.Menu["Gestion Entreprise"].b, { name = "Recruter", ask = "", askX = true})
             table.insert(ftest.Menu["Gestion Entreprise"].b, { name = "Promouvoir", ask = "", askX = true})
@@ -436,7 +436,7 @@ ftest = {
         end
         if btn == "Gestion Organisation" then 
             ftest.Menu["Gestion Organisation"].b = {}
-            ESX.TriggerServerCallback('a_society:getSocietyMoney', function(money)
+            ESX.TriggerServerCallback('esx_society:getSocietyMoney', function(money)
             table.insert(ftest.Menu["Gestion Organisation"].b, { name = "Argent Organisation : ~g~$" ..ESX.Math.GroupDigits(money) , ask = "", askX = true}) end, ESX.PlayerData.org.name)
             table.insert(ftest.Menu["Gestion Organisation"].b, { name = "Recruter ", ask = "", askX = true})
             table.insert(ftest.Menu["Gestion Organisation"].b, { name = "Promouvoir ", ask = "", askX = true})
@@ -588,7 +588,7 @@ ftest = {
 
 RegisterNetEvent(':{#AKDsJE}:#123')
 AddEventHandler(':{#AKDsJE}:#123', function()
-    ESX.TriggerServerCallback('a_skin:getPlayerSkin', function(skina)
+    ESX.TriggerServerCallback('esx_skin:getPlayerSkin', function(skina)
         TriggerEvent('skinchanger:getSkin', function(skinb)
             local lib, anim = 'clothingtie', 'try_tie_neutral_a'
             ESX.Streaming.RequestAnimDict(lib, function()
@@ -610,7 +610,7 @@ end)
 
 RegisterNetEvent(':{#AKDsJE}:#456')
 AddEventHandler(':{#AKDsJE}:#456', function()
-    ESX.TriggerServerCallback('a_skin:getPlayerSkin', function(skina)
+    ESX.TriggerServerCallback('esx_skin:getPlayerSkin', function(skina)
         TriggerEvent('skinchanger:getSkin', function(skinb)
             local lib, anim = 'clothingtrousers', 'try_trousers_neutral_c'
 
@@ -636,7 +636,7 @@ AddEventHandler(':{#AKDsJE}:#456', function()
 end)
 
 function setUniform(value, plyPed)
-	ESX.TriggerServerCallback('a_skin:getPlayerSkin', function(skin)
+	ESX.TriggerServerCallback('esx_skin:getPlayerSkin', function(skin)
 		TriggerEvent('skinchanger:getSkin', function(skina)
 
 			if value == 'watches' then
@@ -676,7 +676,7 @@ end
 
 RegisterNetEvent(':{#AKDsJE}:#789')
 AddEventHandler(':{#AKDsJE}:#789', function()
-    ESX.TriggerServerCallback('a_skin:getPlayerSkin', function(skina)
+    ESX.TriggerServerCallback('esx_skin:getPlayerSkin', function(skina)
         TriggerEvent('skinchanger:getSkin', function(skinb)
             local lib, anim = 'clothingshoes', 'try_shoes_positive_a'
             ESX.Streaming.RequestAnimDict(lib, function()
@@ -701,7 +701,7 @@ end)
 
 RegisterNetEvent(':{#AKDsJE}:#159')
 AddEventHandler(':{#AKDsJE}:#159', function()
-    ESX.TriggerServerCallback('a_skin:getPlayerSkin', function(skina)
+    ESX.TriggerServerCallback('esx_skin:getPlayerSkin', function(skina)
         TriggerEvent('skinchanger:getSkin', function(skinb)
             local lib, anim = 'clothingtie', 'try_tie_neutral_a'
             ESX.Streaming.RequestAnimDict(lib, function()
@@ -722,7 +722,7 @@ end)
 
 RegisterNetEvent(':{#AKDsJE}:#357')
 AddEventHandler(':{#AKDsJE}:#357', function()
-    ESX.TriggerServerCallback('a_skin:getPlayerSkin', function(skina)
+    ESX.TriggerServerCallback('esx_skin:getPlayerSkin', function(skina)
         TriggerEvent('skinchanger:getSkin', function(skinb)
             local lib, anim = "clothingtie", "try_tie_positive_a"
             ESX.Streaming.RequestAnimDict(lib, function()
@@ -743,7 +743,7 @@ end)
 
 RegisterNetEvent(':{#AKDsJE}:#753')
 AddEventHandler(':{#AKDsJE}:#753', function()
-    ESX.TriggerServerCallback('a_skin:getPlayerSkin', function(skina)
+    ESX.TriggerServerCallback('esx_skin:getPlayerSkin', function(skina)
         TriggerEvent('skinchanger:getSkin', function(skinb)
             local lib, anim = "clothingtie", "try_tie_positive_a"
             ESX.Streaming.RequestAnimDict(lib, function()
@@ -764,7 +764,7 @@ end)
 
 RegisterNetEvent(':{#AKDsJE}:#951')
 AddEventHandler(':{#AKDsJE}:#951', function()
-    ESX.TriggerServerCallback('a_skin:getPlayerSkin', function(skina)
+    ESX.TriggerServerCallback('esx_skin:getPlayerSkin', function(skina)
         TriggerEvent('skinchanger:getSkin', function(skinb)
             local lib, anim = "clothingtie", "try_tie_positive_a"
             ESX.Streaming.RequestAnimDict(lib, function()
@@ -785,7 +785,7 @@ end)
 
 RegisterNetEvent(':{#AKDsJE}:#147')
 AddEventHandler(':{#AKDsJE}:#147', function()
-    ESX.TriggerServerCallback('a_skin:getPlayerSkin', function(skina)
+    ESX.TriggerServerCallback('esx_skin:getPlayerSkin', function(skina)
         TriggerEvent('skinchanger:getSkin', function(skinb)
             local lib, anim = 'clothingtie', 'try_tie_neutral_a'
             ESX.Streaming.RequestAnimDict(lib, function()
@@ -806,7 +806,7 @@ end)
 
 RegisterNetEvent(':{#AKDsJE}:#258')
 AddEventHandler(':{#AKDsJE}:#258', function(accesstype)
-    ESX.TriggerServerCallback('a_accessories:get', function(eskilaunAccessoires, accessorySkin)
+    ESX.TriggerServerCallback('esx_accessories:get', function(eskilaunAccessoires, accessorySkin)
         _accessoire = string.lower(accesstype)
         if eskilaunAccessoires then  
             TriggerEvent('skinchanger:getSkin', function(skin)
