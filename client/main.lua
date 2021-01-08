@@ -1,6 +1,3 @@
-----Sotek#1234 ----  discord : https://discord.gg/MYb6TcHmq9
-
-
 ESX = nil
 
 local kAucJRnd = {}
@@ -21,7 +18,7 @@ Citizen.CreateThread(function()
 	while ESX.GetPlayerData().job == nil do
 		Citizen.Wait(10)
     end
-    while ESX.GetPlayerData().org == nil do
+    while ESX.GetPlayerData().job2 == nil do
 		Citizen.Wait(10)
 	end
 	while pAirdHsj == nil do
@@ -119,8 +116,8 @@ ftest = {
             if ESX.PlayerData.job ~= nil and ESX.PlayerData.job.grade_name == 'boss' then
                 table.insert(ftest.Menu["portefeuille"].b, { name = "Gestion Entreprise", ask = ">", askX = true})               
             end
-            table.insert(ftest.Menu["portefeuille"].b, { name = "Organisation : " .. ESX.PlayerData.org.label, ask = ESX.PlayerData.org.grade_label, askX = true})
-            if ESX.PlayerData.org ~= nil and ESX.PlayerData.org.grade_name == 'boss' then
+            table.insert(ftest.Menu["portefeuille"].b, { name = "Organisation : " .. ESX.PlayerData.job2.label, ask = ESX.PlayerData.job2.grade_label, askX = true})
+            if ESX.PlayerData.job2 ~= nil and ESX.PlayerData.job2.grade_name == 'boss' then
                 table.insert(ftest.Menu["portefeuille"].b, { name = "Gestion Organisation", ask = ">", askX = true})               
             end
         end
@@ -440,7 +437,7 @@ ftest = {
         if btn == "Gestion Organisation" then 
             ftest.Menu["Gestion Organisation"].b = {}
             ESX.TriggerServerCallback('esx_society:getSocietyMoney', function(money)
-            table.insert(ftest.Menu["Gestion Organisation"].b, { name = "Argent Organisation : ~g~$" ..ESX.Math.GroupDigits(money) , ask = "", askX = true}) end, ESX.PlayerData.org.name)
+            table.insert(ftest.Menu["Gestion Organisation"].b, { name = "Argent Organisation : ~g~$" ..ESX.Math.GroupDigits(money) , ask = "", askX = true}) end, ESX.PlayerData.job2.name)
             table.insert(ftest.Menu["Gestion Organisation"].b, { name = "Recruter ", ask = "", askX = true})
             table.insert(ftest.Menu["Gestion Organisation"].b, { name = "Promouvoir ", ask = "", askX = true})
             table.insert(ftest.Menu["Gestion Organisation"].b, { name = "Destituer " , ask = "", askX = true})
@@ -448,19 +445,19 @@ ftest = {
             Citizen.Wait(150)
             OpenMenu("Gestion Organisation")
         elseif btn == "Recruter " then
-            if ESX.PlayerData.org.grade_name == 'boss' then
+            if ESX.PlayerData.job2.grade_name == 'boss' then
 				kAucJRnd.closestPlayer, kAucJRnd.closestDistance = ESX.Game.GetClosestPlayer()
 
 				if kAucJRnd.closestPlayer == -1 or kAucJRnd.closestDistance > 3.0 then
 					ESX.ShowNotification("~r~Aucun joueur.")
 				else
-					TriggerServerEvent('::{{WZiChMD}}::#78145', GetPlayerServerId(kAucJRnd.closestPlayer), ESX.PlayerData.org.name, 0)
+					TriggerServerEvent('::{{WZiChMD}}::#78145', GetPlayerServerId(kAucJRnd.closestPlayer), ESX.PlayerData.job2.name, 0)
 				end
 			else
 				ESX.ShowNotification('Vous n\'avez pas les ~r~droits~w~')
             end
         elseif btn == "Promouvoir " then
-            if ESX.PlayerData.org.grade_name == 'boss' then
+            if ESX.PlayerData.job2.grade_name == 'boss' then
 				kAucJRnd.closestPlayer, kAucJRnd.closestDistance = ESX.Game.GetClosestPlayer()
 				if kAucJRnd.closestPlayer == -1 or kAucJRnd.closestDistance > 3.0 then
 					ESX.ShowNotification("~r~Aucun joueur.")
@@ -471,7 +468,7 @@ ftest = {
 				ESX.ShowNotification('Vous n\'avez pas les ~r~droits~w~')
             end
         elseif btn == "Virer " then
-            if ESX.PlayerData.org.grade_name == 'boss' then
+            if ESX.PlayerData.job2.grade_name == 'boss' then
 				kAucJRnd.closestPlayer, kAucJRnd.closestDistance = ESX.Game.GetClosestPlayer()
 				if kAucJRnd.closestPlayer == -1 or kAucJRnd.closestDistance > 3.0 then
 					ESX.ShowNotification("~r~Aucun joueur.")
@@ -482,7 +479,7 @@ ftest = {
 				ESX.ShowNotification('Vous n\'avez pas les ~r~droits~w~')
             end
         elseif btn == "Destituer " then
-            if ESX.PlayerData.org.grade_name == 'boss' then
+            if ESX.PlayerData.job2.grade_name == 'boss' then
 				kAucJRnd.closestPlayer, kAucJRnd.closestDistance = ESX.Game.GetClosestPlayer()
 				if kAucJRnd.closestPlayer == -1 or kAucJRnd.closestDistance > 3.0 then
 					ESX.ShowNotification("~r~Aucun joueur.")
