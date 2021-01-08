@@ -19,3 +19,4 @@ server_scripts {
 -- Developped by Sotek#1234
 -- Cleaned and edited by lwz#2051
 -- 
+---  discord : https://discord.gg/MYb6TcHmq9
