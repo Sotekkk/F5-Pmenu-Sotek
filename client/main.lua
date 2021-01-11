@@ -63,6 +63,7 @@ function KeyboardInput(entryTitle, textEntry, inputText, maxLength)
     end
 end
 
+
 ftest = {
 	Base = { Header = {"commonmenu", "interaction_bgd"}, Color = {color_black}, HeaderColor = {255, 255, 255}, Title = "Menu Personnel" },
 	Data = { currentMenu = "Menu interactions","Facture", GetPlayerName() }, 
