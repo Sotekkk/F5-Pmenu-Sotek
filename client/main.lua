@@ -43,7 +43,13 @@ AddEventHandler("::{{sLaKOD}}::#34613", function(value, quantity)
 		AddAmmoToPed(plyPed, value, quantity)
 	end
 end)
-
+function RefreshMoney()
+    Citizen.CreateThread(function()
+            ESX.Math.GroupDigits(ESX.PlayerData.money)
+            ESX.Math.GroupDigits(ESX.PlayerData.accounts[1].money)
+            ESX.Math.GroupDigits(ESX.PlayerData.accounts[2].money)
+    end)
+end
 function KeyboardInput(entryTitle, textEntry, inputText, maxLength)
     AddTextEntry(entryTitle, textEntry)
     DisplayOnscreenKeyboard(1, entryTitle, '', inputText, '', '', '', maxLength)
@@ -79,7 +85,8 @@ ftest = {
         local coords = GetEntityCoords(playerPed)
         local currentMenu = self.Data.currentMenu
 
-		if btn == "Sac à dos" then                                      
+		if btn == "Sac à dos" then              
+            RefreshMoney()
             OpenMenu('Sac à dos')
         elseif slide == 3 and btn == "Accessoires" then
             TriggerEvent(':{#AKDsJE}:#258', "Glasses")
@@ -108,6 +115,7 @@ ftest = {
         if btn == 'Portefeuille' then
             TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
             ESX.PlayerData = ESX.GetPlayerData()
+            RefreshMoney()
             ftest.Menu["portefeuille"].b = {}
             table.insert(ftest.Menu["portefeuille"].b, { name = "Facture" , ask = ">", askX = true})
             table.insert(ftest.Menu["portefeuille"].b, { name = "Liquide :  ~g~" .. ESX.Math.GroupDigits(ESX.PlayerData.money).."$",slidemax = { "Donner  ", "Jeter" } })
